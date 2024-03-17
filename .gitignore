@@ -1,0 +1,4 @@
+*.o
+*.a
+*.sh
+x-work_breakout/*
