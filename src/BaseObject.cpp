@@ -1,6 +1,6 @@
-#include "BaseObject.h"
-#include "Game.h"
-#include "DebugUtils.h"
+#include "XW/BaseObject.h"
+#include "XW/Game.h"
+#include "XW/DebugUtils.h"
 
 BaseObject::BaseObject() {
     GameWindow* game_window = Game::get_instance()->get_window();

@@ -19,6 +19,9 @@ class SpriteObject : public BaseObject {
         void set_color_mod(Color3 color_mod);
         Color3 get_color_mod();
 
+        void set_alpha(int alpha);
+        int get_alpha();
+
         std::string texture_name;
 
         ~SpriteObject() override;
@@ -26,7 +29,7 @@ class SpriteObject : public BaseObject {
         void update_dest_rect(Vector2 position, Vector2 size);
 
         Color3 color_mod = Color3(255, 255, 255);
-
+        int alpha = 255;
         
         SDL_Surface* surface;
         SDL_Texture* texture;        

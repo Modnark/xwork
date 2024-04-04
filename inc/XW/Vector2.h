@@ -5,5 +5,7 @@ class Vector2 {
         float X = 0.0f;
         float Y = 0.0f; 
         Vector2(float x, float y);
+        bool operator==(Vector2 other);
+        bool operator!=(Vector2 other);
 };
 #endif

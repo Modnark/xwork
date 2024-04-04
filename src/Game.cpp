@@ -1,5 +1,5 @@
-#include "Game.h"
-#include "DebugUtils.h"
+#include "XW/Game.h"
+#include "XW/DebugUtils.h"
 #include <iostream>
 
 Game* Game::instance = nullptr;
@@ -9,7 +9,7 @@ Game* Game::get_instance() {
     return instance;
 }
 
-void Game::destroy_instance() {
+void Game::shutdown() {
     if(instance) {
         delete instance;
         instance = nullptr;
@@ -53,6 +53,10 @@ void Game::create_window(std::string title, Vector2 size) {
     }
 
     DebugUtils::PrintOutput(Console, Info, "[Game::create_window()] Window created successfully.\n");
+}
+
+void Game::set_target_framerate(Uint32 target_framerate) {
+    TARGET_FRAME_RATE = target_framerate;
 }
 
 GameWindow* Game::get_window() {
@@ -186,7 +190,9 @@ void Game::step() {
 
 Game::~Game() {
     DebugUtils::PrintOutput(Console, Warn, "[Game::~Game()] Shutting down...\n");
-    
+    Timer::destroy_instance();
+    SoundPlayer::destroy_instance();    
+
     for(int i = 0; i < game_object_list.size(); i++)
     {
         printf("Deleting object with name: %s\n", game_object_list.at(i)->get_name().c_str());

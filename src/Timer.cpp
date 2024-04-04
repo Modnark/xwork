@@ -1,4 +1,4 @@
-#include "Timer.h"
+#include "XW/Timer.h"
 
 Timer* Timer::instance = nullptr;
 
@@ -37,9 +37,11 @@ void Timer::update() {
     delta_time = elapsed_ticks * 0.001f;
 }
 
-Timer::~Timer() {
+void Timer::destroy_instance() {
     if(instance) {
         delete instance;
         instance = nullptr;
     }
 }
+
+Timer::~Timer() {}

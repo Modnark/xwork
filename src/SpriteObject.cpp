@@ -1,7 +1,7 @@
-#include "SpriteObject.h"
+#include "XW/SpriteObject.h"
 
-#include "StringUtils.h"
-#include "DebugUtils.h"
+#include "XW/StringUtils.h"
+#include "XW/DebugUtils.h"
 
 #include <stdexcept>
 #include <filesystem>
@@ -70,15 +70,29 @@ void SpriteObject::load_texture() {
         throw std::runtime_error(StringUtils::Format(error_text.c_str(), "SDL_CreateTextureFromSurface() returned nullptr\n").c_str());
 
     SDL_SetTextureColorMod(texture, color_mod.r, color_mod.g, color_mod.b);
+    SDL_SetTextureAlphaMod(texture, alpha); 
 }
 
 void SpriteObject::set_color_mod(Color3 color_mod) {
-    this->color_mod = color_mod;
-    load_texture();
+    if(color_mod != this->color_mod) {
+        this->color_mod = color_mod;
+        load_texture();
+    }
 }
 
 Color3 SpriteObject::get_color_mod() {
     return color_mod;
+}
+
+void SpriteObject::set_alpha(int alpha) {
+    if(alpha != this->alpha) {
+        this->alpha = alpha;
+        load_texture(); 
+    }
+}
+
+int SpriteObject::get_alpha() {
+    return alpha;
 }
 
 SpriteObject::~SpriteObject() {

@@ -1,4 +1,4 @@
-#include "Collision.h"
+#include "XW/Collision.h"
 
 bool Collision::test(BaseObject* obj1, BaseObject* obj2, CollisionDirection* direction, float delta_time) {
     SDL_FRect bb1 = obj1->get_rect();

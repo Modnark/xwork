@@ -6,6 +6,7 @@
 #include "GameWindow.h"
 #include "Vector2.h"
 #include "Timer.h"
+#include "SoundPlayer.h"
 #include <cmath>
 
 #ifndef GAME_H
@@ -14,7 +15,7 @@ class Game {
 
     public:
         static Game* get_instance();
-        static void destroy_instance();
+        static void shutdown();
         void show(bool doShow);
         bool is_running();
         GameWindow* get_window();
@@ -25,6 +26,7 @@ class Game {
         std::vector<BaseObject*> get_game_objects_by_name(std::string name);
         std::vector<BaseObject*> get_game_objects_by_class_name(std::string class_name);
         BaseObject* get_game_object_by_name(std::string name);
+        void set_target_framerate(Uint32 target_framerate);
         void step();
         void run();
         void stop();
@@ -40,6 +42,6 @@ class Game {
         SDL_Event event;
         float game_fps;
         Timer* game_timer;
-        const int TARGET_FRAME_RATE = 144;
+        int TARGET_FRAME_RATE = 144;
 };
 #endif

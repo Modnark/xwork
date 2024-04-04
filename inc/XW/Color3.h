@@ -6,5 +6,7 @@ class Color3 {
         int g = 255;
         int b = 255;
         Color3(int r, int g, int b);
+        bool operator==(Color3 other);
+        bool operator!=(Color3 other);
 };
 #endif

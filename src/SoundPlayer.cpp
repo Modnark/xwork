@@ -1,6 +1,4 @@
-#include "SoundPlayer.h"
-
-// TODO: cleanup & make easier to use externally
+#include "XW/SoundPlayer.h"
 
 SoundPlayer* SoundPlayer::instance = nullptr;
 SoundPlayer* SoundPlayer::get_instance() {
@@ -15,11 +13,15 @@ SoundPlayer::SoundPlayer() {
     }
 }
 
-SoundPlayer::~SoundPlayer() {
-    Mix_Quit();
+void SoundPlayer::destroy_instance() {
     if(instance) {
         delete instance;
+        instance = nullptr;
     }
+}
+
+SoundPlayer::~SoundPlayer() {
+    Mix_Quit();
 }
 
 Mix_Chunk* SoundPlayer::load_sfx(std::string sfx_name) {

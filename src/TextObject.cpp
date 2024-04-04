@@ -1,7 +1,7 @@
-#include "TextObject.h"
+#include "XW/TextObject.h"
 
-#include "StringUtils.h"
-#include "DebugUtils.h"
+#include "XW/StringUtils.h"
+#include "XW/DebugUtils.h"
 
 #include <stdexcept>
 

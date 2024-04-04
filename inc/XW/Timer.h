@@ -5,6 +5,7 @@
 class Timer {
     public:
         static Timer* get_instance();
+        static void destroy_instance();
         
         void update();
         void reset();
@@ -12,6 +13,7 @@ class Timer {
 
         void set_time_scale(float time_scale);
         float get_time_scale();
+        
     private:
         static Timer* instance;
         

@@ -1,4 +1,4 @@
-#include "GameWindow.h"
+#include "XW/GameWindow.h"
 
 GameWindow::GameWindow(std::string title, Vector2 size) {
     this->size = size;
