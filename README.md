@@ -26,3 +26,4 @@ Using this in a project is just as simple as any other library, all you need to 
 * Camera / Scrolling
 * Improve collision detection (can get wacky and imprecise at lower framerates)
 * Layering system for rendering order
+* Setup proper Windows build environment (or somehow make cmake do all the work for me)
