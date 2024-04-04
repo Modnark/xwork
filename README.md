@@ -13,4 +13,5 @@ cmake ..
 make
 ```
 # Using in a project
+(UPDATE: 4/4/24) The breakout example will not work with the current API any longer and needs to be updated.
 Using this in a project is just as simple as any other library, all you need to do is include all of the .h header files, and libxwork.a, for an example check out my [Breakout Game](https://github.com/Modnark/x-work_breakout).
